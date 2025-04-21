@@ -28,8 +28,8 @@ export default function Login() {
                         alt="APIU Logo"
                         style={{ width: "200px", marginBottom: "1rem", display: "block", marginInline: "auto" }}
                     />
-                    <h1 style={{ fontSize: "1.5rem", textAlign: "center", paddingBottom: "1rem"}}>Venue Booking System</h1>
-                    <h2>Login</h2>
+                    <h1 style={{ fontSize: "1.3rem", textAlign: "center", paddingBottom: "1rem"}}>Venue Booking System</h1>
+                    <h2></h2>
                 </hgroup>
                 <form onSubmit={handleSubmit}>
                     <label>
