@@ -3,10 +3,12 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import React from "react";
 import styles from "../styles/add-venue.module.css";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function AddVenuePage() {
   const [showModal, setShowModal] = useState(false);
   const [showMediaInput, setShowMediaInput] = useState(false);
+  const router = useRouter();
 
   const handleBookNow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
@@ -19,6 +21,24 @@ export default function AddVenuePage() {
 
   return (
     <div className={styles.container}>
+      <button
+        onClick={() => router.push("/menu")}
+        style={{
+          position: "absolute",
+          top: "0.5rem",
+          left: "13.5rem",
+          // padding: "0.5rem 0.8rem",
+          fontSize: "0.8rem",
+          borderRadius: "4px",
+          border: "none",
+          background: "none",
+          color: "#fff",
+          cursor: "pointer",
+          zIndex: 1000,
+        }}
+      >
+        ← Back
+      </button>
       {/* Sidebar */}
       <aside className={styles.sidebar}>
         <div className={styles.logoWrapper}>
