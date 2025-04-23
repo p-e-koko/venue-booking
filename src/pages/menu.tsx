@@ -31,7 +31,7 @@ export default function Menu() {
           <Link href="/venue/add-venue" legacyBehavior>
             <a role="button" className={`contrast ${styles.button}`}>📅 Book Venue</a>
           </Link>
-          <Link href="/venue/list" legacyBehavior>
+          <Link href="/venue/manage-venue" legacyBehavior>
             <a role="button" className={`secondary ${styles.button}`}>🗂️ Manage Booking</a>
           </Link>
         </div>
