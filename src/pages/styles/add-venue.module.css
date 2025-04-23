@@ -68,3 +68,38 @@
     padding-bottom: 0.5rem;
     font-size: 0.9rem;
 }
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background: #23283a;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    min-width: 320px;
+    max-width: 90vw;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  
+  .closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }

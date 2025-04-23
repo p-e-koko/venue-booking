@@ -2,8 +2,20 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import React from "react";
 import styles from "../styles/add-venue.module.css";
+import { useState } from "react";
 
 export default function AddVenuePage() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleBookNow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // This place is to store the data
+    setShowModal(false);
+  }
+
   return (
     <div className={styles.container}>
       {/* Sidebar */}
@@ -107,10 +119,41 @@ export default function AddVenuePage() {
           />
         </div>
         <div>
-          <button className={styles.bookNowBtn}>
+          <button className={styles.bookNowBtn} onClick={handleBookNow}>
             Book Now
           </button>
         </div>
+
+        {showModal && (
+          <div className={styles.modalOverlay}>
+            <div className={styles.modalContent}>
+              <button className={styles.closeBtn} onClick={handleClose}>&times;</button>
+              <h2>Book Venue</h2>
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label>
+                    Name:
+                    <input type="text" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    Date:
+                    <input type="date" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    Purpose:
+                    <input type="text" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  </label>
+                </div>
+                <button type="submit" style={{ marginTop: "1rem" }}>Submit</button>
+              </form>
+            </div>
+          </div>
+        )}    
+
       </main>
     </div>
   );
