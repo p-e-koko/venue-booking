@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function AddVenuePage() {
   const [showModal, setShowModal] = useState(false);
+  const [showMediaInput, setShowMediaInput] = useState(false);
 
   const handleBookNow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
@@ -132,27 +133,149 @@ export default function AddVenuePage() {
               <form onSubmit={handleSubmit}>
                 <div>
                   <label>
-                    Name:
-                    <input type="text" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  Venue:
+                  <select required style={{ width: "100%", margin: "0.5rem 0" }}>
+                    <optgroup label="Main Venues">
+                    <option value="Auditorium">Auditorium</option>
+                    <option value="Church">Church</option>
+                    <option value="Fellowship Hall">Fellowship Hall</option>
+                    <option value="Dining Hall">Dining Hall</option>
+                    </optgroup>
+                    <optgroup label="Classrooms">
+                    <option value="IT110/1111">IT110/1111</option>
+                    <option value="IT122">IT122</option>
+                    <option value="IT128">IT128</option>
+                    <option value="AD103">AD103</option>
+                    <option value="IT110/1111">IT110/1111</option>
+                    <option value="IT122">IT122</option>
+                    <option value="IT128">IT128</option>
+                    <option value="IT210">IT210</option>
+                    <option value="IT211">IT211</option>
+                    <option value="IT222">IT222</option>
+                    <option value="IT223">IT223</option>
+                    <option value="IT224">IT224</option>
+                    <option value="IT228">IT228</option>
+                    <option value="IT235">IT235</option>
+                    <option value="IT302">IT302</option>
+                    <option value="IT303">IT303</option>
+                    <option value="IT306">IT306</option>
+                    <option value="IT307">IT307</option>
+                    <option value="IT319">IT319</option>
+                    <option value="IT320A">IT320A</option>
+                    <option value="IT320B">IT320B</option>
+                    <option value="IT321">IT321</option>
+                    <option value="IT328">IT328</option>
+                    <option value="AD103">AD103</option>
+                    <option value="AD104">AD104</option>
+                    <option value="AD301">AD301</option>
+                    <option value="AD302">AD302</option>
+                    <option value="AD303">AD303</option>
+                    <option value="AD306">AD306</option>
+                    <option value="AD307">AD307</option>
+                    <option value="AD308">AD308</option>
+                    <option value="SB101">SB101</option>
+                    <option value="SB102">SB102</option>
+                    <option value="SB201">SB201</option>
+                    <option value="SB202">SB202</option>
+                    <option value="SB204">SB204</option>
+                    <option value="SB205">SB205</option>
+                    <option value="SB301">SB301</option>
+                    <option value="SB302">SB302</option>
+                    <option value="SB303">SB303</option>
+                    <option value="SB315">SB315</option>
+                    </optgroup>
+                  </select>
                   </label>
                 </div>
                 <div>
                   <label>
-                    Date:
-                    <input type="date" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  Email:
+                  <input type="email" required style={{ width: "100%", margin: "0.5rem 0" }} />
                   </label>
                 </div>
                 <div>
                   <label>
-                    Purpose:
-                    <input type="text" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  Date:
+                  <input type="date" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                  Start Time:
+                  <input type="time" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                  End Time:
+                  <input type="time" required style={{ width: "100%", margin: "0.5rem 0" }} />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                  Purpose:
+                  <div style={{ margin: "0.5rem 0" }}>
+                    <label>
+                    <input type="radio" name="purpose" value="Class" required /> Class
+                    </label>
+                    <label style={{ marginLeft: "0.5rem 0" }}>
+                    <input type="radio" name="purpose" value="Event" required /> Event
+                    </label>
+                  </div>
+                  </label>
+                </div>
+                <div>
+                  <label>
+                  Media Needed:
+                  <div style={{ margin: "0.5rem 0" }}>
+                    <label>
+                    <input
+                      type="radio"
+                      name="mediaNeeded"
+                      value="Yes"
+                      required
+                      onChange={(e) => setShowMediaInput(e.target.value === "Yes")}
+                    />{" "}
+                    Yes
+                    </label>
+                    <label style={{ marginLeft: "0.5rem 0" }}>
+                    <input
+                      type="radio"
+                      name="mediaNeeded"
+                      value="No"
+                      required
+                      onChange={(e) => setShowMediaInput(e.target.value === "Yes")}
+                    />{" "}
+                    No
+                    </label>
+                  </div>
+                  </label>
+                </div>
+                {showMediaInput && (
+                  <div>
+                  <label>
+                    Equipment Needed:
+                    <textarea
+                      rows={2}
+                      style={{ width: "100%", margin: "0.5rem 0" }}
+                  ></textarea>
+                  </label>
+                  </div>
+                )}
+                <div>
+                  <label>
+                  Description and Remark:
+                  <textarea
+                    rows={4}
+                    style={{ width: "100%", margin: "0.5rem 0" }}
+                  ></textarea>
                   </label>
                 </div>
                 <button type="submit" style={{ marginTop: "1rem" }}>Submit</button>
               </form>
             </div>
           </div>
-        )}    
+        )}
 
       </main>
     </div>
