@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    height: 100vh;
+    margin-top: 10px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1A1F28;
+    padding: 1rem;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.logoWrapper {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.logoImg {
+    width: 200px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-inline: auto;
+}
+
+.toggleList {
+    list-style: none;
+    padding-left: 1rem;
+    background-color: #13171F;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.toggleListNested {
+    list-style: none;
+    padding-left: 1.5rem;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.toggleListClassroom {
+    list-style: none;
+    padding: 1rem;
+    background-color: #13171F;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.main {
+    flex: 1;
+    padding: 0rem;
+    overflow: hidden;
+}
+
+.calendarContainer {
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+}
+
+.bookNowBtn {
+    margin-top: 5rem;
+    float: right;
+    margin-right: 6rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
