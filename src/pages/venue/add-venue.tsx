@@ -16,7 +16,11 @@ export default function AddVenuePage() {
           overflowY: "auto",
         }}
       >
-        <div style={{ marginBottom: "2rem", textAlign: "center" }}>
+        <div 
+          style={{ 
+            marginBottom: "2rem", 
+            textAlign: "center"
+          }}>
           <img
             src="https://www.apiu.edu/wp-content/uploads/2021/03/White-Logo-Horizontal.png"
             alt="APIU Logo"
@@ -103,8 +107,8 @@ export default function AddVenuePage() {
       </aside>
 
       {/* Main Content */}
-      <main style={{ flex: 1, padding: "0rem"}}>
-        <div style={{ width: "80%", height: "85vh", margin: "0 auto"}}>
+      <main style={{ flex: 1, padding: "0rem", overflow: "hidden"}}>
+        <div style={{ width: "80%", height: "80vh", margin: "0 auto"}}>
             <FullCalendar
             plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
@@ -115,6 +119,19 @@ export default function AddVenuePage() {
                 { title: "Event 2", date: "2025-04-23" },
             ]}
             />
+        </div>
+        <div>
+            <button 
+              style={{ 
+                marginTop: "5rem", 
+                float: "right", 
+                marginRight: "6rem", 
+                paddingTop: "0.5rem", 
+                paddingBottom: "0.5rem",
+                fontSize: "0.9rem"
+              }}>
+            Book Now
+            </button>
         </div>
       </main>
     </div>
