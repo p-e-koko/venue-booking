@@ -12,6 +12,7 @@
     "@fullcalendar/core": "^6.1.17",
     "@fullcalendar/daygrid": "^6.1.17",
     "@fullcalendar/react": "^6.1.17",
+    "@legendapp/state": "^3.0.0-beta.30",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

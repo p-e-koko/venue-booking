@@ -1,11 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
+
 import styles from "./styles/menu.module.css";
+import { storage$ } from "./storage";
 
 export default function Menu() {
-  const userName = "Pann"; // This can be made dynamic later
+  const userName = storage$.user.name.get(); // This can be made dynamic later
 
   return (
     <main className={styles.wrapper}>
@@ -13,12 +12,17 @@ export default function Menu() {
         <header className={styles.header}>
           <h3 className={styles.subtitle}>Venue Booking System</h3>
           <div className={styles.logoWrapper}>
-          <img
-            src="https://www.apiu.edu/wp-content/uploads/2021/03/White-Logo-Horizontal.png"
-            alt="APIU Logo"
-            style={{ width: "200px", marginBottom: "1rem", display: "block", marginInline: "auto" }}
-            className={styles.logo}
-        />
+            <img
+              src="https://www.apiu.edu/wp-content/uploads/2021/03/White-Logo-Horizontal.png"
+              alt="APIU Logo"
+              style={{
+                width: "200px",
+                marginBottom: "1rem",
+                display: "block",
+                marginInline: "auto",
+              }}
+              className={styles.logo}
+            />
           </div>
         </header>
 
@@ -28,11 +32,15 @@ export default function Menu() {
         </section>
 
         <div className={styles.buttonGroup}>
-          <Link href="/venue/add-venue" legacyBehavior>
-            <a role="button" className={`contrast ${styles.button}`}>📅 Book Venue</a>
+          <Link href="/venue/add" legacyBehavior>
+            <a role="button" className={`contrast ${styles.button}`}>
+              📅 Book Venue
+            </a>
           </Link>
           <Link href="/venue/list" legacyBehavior>
-            <a role="button" className={`secondary ${styles.button}`}>🗂️ Manage Booking</a>
+            <a role="button" className={`secondary ${styles.button}`}>
+              🗂️ Manage Booking
+            </a>
           </Link>
         </div>
       </article>
