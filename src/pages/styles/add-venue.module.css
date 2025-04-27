@@ -26,12 +26,18 @@
 }
 
 .toggleList {
-    list-style: none;
-    padding-left: 1rem;
+    color: white;
+    list-style-type: none;
+    padding-left: 1rem; 
     background-color: #13171F;
-    font-size: 0.95rem;
+    font-size: 0.90rem;
     margin: 0;
-}
+  }
+  
+  .toggleList li a {
+    color: white;
+    text-decoration: none;
+  }
 
 .toggleListNested {
     list-style: none;
