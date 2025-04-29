@@ -4,8 +4,7 @@ import React from "react";
 import styles from "../../styles/add-venue.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { storage$, VenueEvent } from "../storage";
-import Link from 'next/link';
+import { storage$, VenueEvent } from "../../components/storage";
 import Sidebar from "../../components/sidebar";
 
 export default function AddVenuePage() {

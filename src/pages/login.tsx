@@ -1,4 +1,4 @@
-import { storage$ } from "./storage";
+import { storage$ } from "../components/storage";
 import { useRouter } from "next/router";
 import { useState } from "react";
 

@@ -1,4 +1,4 @@
-import { storage$, VenueEvent } from "../storage";
+import { storage$, VenueEvent } from "../../components/storage";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import FullCalendar from "@fullcalendar/react";
 import { useRouter } from "next/router";
@@ -15,7 +15,6 @@ export default function VenueDetailPage() {
   const [selectedBooking, setSelectedBooking] = useState<VenueEvent | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [showMediaInput, setShowMediaInput] = useState(false);
-  const venue = {id};
 
   const handleBookNow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);

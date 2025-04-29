@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import styles from "../styles/menu.module.css";
-import { storage$ } from "./storage";
+import { storage$ } from "../components/storage";
 
 export default function Menu() {
   const userName = storage$.user.name.get(); // This can be made dynamic later
