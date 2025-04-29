@@ -40,6 +40,7 @@ export const storage$ = observable<Storage>({
   users: [
     { email: "pann@apiu.edu", name: "Pekko", password: "hesoyam" },
     { email: "dan@apiu.edu", name: "Dan", password: "cannottell" },
+    { email: "broset@apiu.edu", name: "Broset", password: "cannottell"}
   ],
 
   login: (email: string, password: string) => {
