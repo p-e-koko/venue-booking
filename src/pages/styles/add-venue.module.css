@@ -57,19 +57,19 @@
 .main {
     flex: 1;
     padding: 0rem;
-    overflow: hidden;
 }
 
 .calendarContainer {
-    width: 80%;
-    height: 80vh;
-    margin: 0 auto;
+    flex: 1 1 auto;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .bookNowBtn {
     margin-top: 5rem;
-    float: right;
-    margin-right: 6rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-size: 0.9rem;
@@ -110,4 +110,21 @@
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
+  }
+
+  select, select:focus {
+    background: #23283a;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  option, optgroup {
+    background: #23283a;
+    color: #fff;
   }
