@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import styles from "./styles/menu.module.css";
+import styles from "../styles/menu.module.css";
 import { storage$ } from "./storage";
 
 export default function Menu() {
@@ -37,11 +37,11 @@ export default function Menu() {
               📅 Book Venue
             </a>
           </Link>
-          <Link href="/venue/list" legacyBehavior>
+          {/* <Link href="/venue/list" legacyBehavior>
             <a role="button" className={`secondary ${styles.button}`}>
               🗂️ Manage Booking
             </a>
-          </Link>
+          </Link> */}
         </div>
       </article>
     </main>

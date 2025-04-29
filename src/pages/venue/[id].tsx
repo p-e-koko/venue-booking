@@ -1,14 +1,18 @@
-import { storage$ } from "../storage";
+import { storage$, VenueEvent } from "../storage";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import FullCalendar from "@fullcalendar/react";
 import { useRouter } from "next/router";
-import styles from "../styles/add-venue.module.css";
+import styles from "../../styles/add-venue.module.css";
+import Sidebar from "../../components/sidebar"
+import { useState } from "react";
 
 export default function VenueDetailPage() {
   const user = storage$.user.get();
   const events = storage$.events.get();
   const router = useRouter();
   const { id } = router.query;
+  const [bookingDialogStatus, setBookingDialogStatus] = useState(false);
+  const [selectedBooking, setSelectedBooking] = useState<VenueEvent | null>(null);
 
   console.log({ events });
 
@@ -27,97 +31,13 @@ export default function VenueDetailPage() {
           background: "none",
           color: "#fff",
           cursor: "pointer",
-          zIndex: 1000,
+          zIndex: 10,
         }}
       >
         ← Back
       </button>
       {/* Sidebar */}
-      <aside className={styles.sidebar}>
-        <div className={styles.logoWrapper}>
-          <img
-            src="https://www.apiu.edu/wp-content/uploads/2021/03/White-Logo-Horizontal.png"
-            alt="APIU Logo"
-            className={styles.logoImg}
-          />
-        </div>
-        <nav>
-          <h3>Venue</h3>
-          <details>
-            <summary>Main Venues</summary>
-            <ul className={styles.toggleList}>
-              <li>Auditorium</li>
-              <li>Church</li>
-              <li>Fellowship Hall</li>
-              <li>Dining Hall</li>
-            </ul>
-          </details>
-
-          <details>
-            <summary>Classroom</summary>
-            <ul className={styles.toggleListClassroom}>
-              <li>
-                <details>
-                  <summary>IT Building</summary>
-                  <ul className={styles.toggleListNested}>
-                    <li>IT110/1111</li>
-                    <li>IT122</li>
-                    <li>IT128</li>
-                    <li>IT210</li>
-                    <li>IT211</li>
-                    <li>IT222</li>
-                    <li>IT223</li>
-                    <li>IT224</li>
-                    <li>IT228</li>
-                    <li>IT235</li>
-                    <li>IT302</li>
-                    <li>IT303</li>
-                    <li>IT306</li>
-                    <li>IT307</li>
-                    <li>IT319</li>
-                    <li>IT320A</li>
-                    <li>IT320B</li>
-                    <li>IT321</li>
-                    <li>IT328</li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>AD Building</summary>
-                  <ul className={styles.toggleListNested}>
-                    <li>AD103</li>
-                    <li>AD104</li>
-                    <li>AD301</li>
-                    <li>AD302</li>
-                    <li>AD303</li>
-                    <li>AD306</li>
-                    <li>AD307</li>
-                    <li>AD308</li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Science Building</summary>
-                  <ul className={styles.toggleListNested}>
-                    <li>SB101</li>
-                    <li>SB102</li>
-                    <li>SB201</li>
-                    <li>SB202</li>
-                    <li>SB204</li>
-                    <li>SB205</li>
-                    <li>SB301</li>
-                    <li>SB302</li>
-                    <li>SB303</li>
-                    <li>SB315</li>
-                  </ul>
-                </details>
-              </li>
-            </ul>
-          </details>
-        </nav>
-      </aside>
+      <Sidebar />
 
       {/* Main Content */}
       <main className={styles.main}>
@@ -126,15 +46,39 @@ export default function VenueDetailPage() {
             plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
             height="auto"
+            eventClick={(info) => {
+              setSelectedBooking(info.event.extendedProps.booking as VenueEvent);
+              setBookingDialogStatus(true);
+              
+            }}
             events={events
-              .filter((e) => e.venue == id)
+              .filter((e) => e.venue.toLowerCase() == id)
               .map((e) => ({
                 title: `${e.venue} | ${e.email}`,
                 date: e.date,
+                url: "#",
+                booking: e
               }))}
           />
         </div>
       </main>
+      <dialog open={bookingDialogStatus}>
+        <article>
+          <header>
+            <button onClick={()=>setBookingDialogStatus(false)} aria-label="Close" rel="prev"></button>
+            <p>
+              <strong>{selectedBooking?.venue}</strong>
+            </p>
+          </header>
+            
+          <ul>
+            <li>Requested by: {selectedBooking?.email}</li>
+            <li>Purpose: {selectedBooking?.purpose}</li>
+            <li>Date: {selectedBooking?.date}</li>
+            <li>Time: {selectedBooking?.start} - {selectedBooking?.end}</li>
+          </ul>
+        </article>
+      </dialog>
     </div>
   );
 }
