@@ -11,6 +11,9 @@ export default function Sidebar() {
             className={styles.logoImg}
           />
         </div>
+        <div style={{marginBottom:"1rem"}}>
+          <kbd><Link style={{ textDecoration: "none", color: "#1A1F28" }} href="add">Booking</Link></kbd>
+        </div>
         <nav>
           <h3>Venue</h3>
           <details>

@@ -76,7 +76,6 @@ export default function VenueDetailPage() {
           <h5 style={{ textAlign: "left", textTransform: "uppercase" }}>{id}</h5>
         </div>
         <div>
-        
           <button className={styles.bookNowBtn} onClick={handleBookNow}>
             Book Now
           </button>
